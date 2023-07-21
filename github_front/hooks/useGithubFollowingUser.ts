@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { GithubUser } from '@/models/GithubUser';
+import { FollowingUser } from '@/models/FollowingUser';
 
-export const useGithubUser = () => {
+export const useGithubFollowingUser = () => {
   const [username, setUsername] = useState<string | null>(null);
-  const [user, setUser] = useState<GithubUser | null>(null);
+  const [followingUsers, setFollowingUsers] = useState<FollowingUser[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<any>(null);
 
@@ -12,9 +12,9 @@ export const useGithubUser = () => {
     if (username) {
       setIsLoading(true);
       setIsError(false);
-      axios.get<GithubUser>(`https://api.github.com/users/${username}`)
+      axios.get<FollowingUser[]>(`https://api.github.com/users/${username}/following`)
         .then(response => {
-          setUser(response.data);
+          setFollowingUsers(response.data);
           setIsLoading(false);
         })
         .catch(error => {
@@ -29,7 +29,7 @@ export const useGithubUser = () => {
   };
 
   return {
-    user,
+    followingUsers,
     isLoading,
     isError,
     startFetching,
