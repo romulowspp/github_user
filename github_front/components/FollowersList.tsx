@@ -45,7 +45,7 @@ const FollowersList: React.FC<FollowersListProps> = ({ username }) => {
                   .includes(followingUsername.toLowerCase())
               )
               .map((followingUser: FollowingUser, index) => (
-                <div key="index" className="container py-2">
+                <div key={index} className="container py-2">
                   <div className="w-full flex flex-col border items-center md:flex-row bg-white rounded-lg py-3 px-5">
                     <img
                       src={followingUser.avatar_url}

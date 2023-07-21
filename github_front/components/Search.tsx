@@ -22,7 +22,6 @@ const Search = () => {
       <form onSubmit={handleSubmit} className="mb-4 flex justify-center">
         <input
           type="text"
-          value={username}
           onChange={handleChange}
           className="border px-2 py-1 mr-2"
         />
@@ -74,7 +73,7 @@ const Search = () => {
                 </p>
               </div>
             </div>
-            <FollowersList username={username} />
+            <FollowersList username={user.login} />
           </div>
         </>
       )}
