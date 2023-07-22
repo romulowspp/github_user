@@ -44,7 +44,7 @@ const Search = () => {
               />
               <div className="">
                 <h2 className="text-2xl mb-2">
-                  {user.login} - {user.name}
+                  {user.username} - {user.name}
                 </h2>
                 {user.bio && (<p className="mt-2 cursor-pointer text-blue-500"><a onClick={e => {e.preventDefault(); setShowBioModal(true)}}>Mostrar Bio</a></p>)}
                 <p className="mt-2">
@@ -73,7 +73,7 @@ const Search = () => {
                 </p>
               </div>
             </div>
-            <FollowersList username={user.login} />
+            <FollowersList username={user.username} />
           </div>
         </>
       )}

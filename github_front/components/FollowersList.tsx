@@ -1,6 +1,6 @@
 import { useGithubFollowingUser } from "@/hooks/useGithubFollowingUser";
 import { FollowingUser } from "@/models/FollowingUser";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 interface FollowersListProps {
   username: string;
@@ -40,7 +40,7 @@ const FollowersList: React.FC<FollowersListProps> = ({ username }) => {
           <>
             {followingUsers
               .filter((followingUser: FollowingUser) =>
-                followingUser.login
+                followingUser.name
                   .toLowerCase()
                   .includes(followingUsername.toLowerCase())
               )
@@ -53,7 +53,7 @@ const FollowersList: React.FC<FollowersListProps> = ({ username }) => {
                       className="w-24 h-24 rounded-full mx-2"
                     />
                     <div className="">
-                      <h2 className="text-2xl mb-2">{followingUser.login}</h2>
+                      <h2 className="text-2xl mb-2">{followingUser.name}</h2>
                     </div>
                   </div>
                 </div>
