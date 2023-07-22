@@ -12,7 +12,7 @@ export const useGithubFollowingUser = () => {
     if (username) {
       setIsLoading(true);
       setIsError(false);
-      axios.get<FollowingUser[]>(`https://api.github.com/users/${username}/following`)
+      axios.get<FollowingUser[]>(`${process.env.NEXT_PUBLIC_API_URL}${username}/following`)
         .then(response => {
           setFollowingUsers(response.data);
           setIsLoading(false);

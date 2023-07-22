@@ -12,7 +12,7 @@ export const useGithubUser = () => {
     if (username) {
       setIsLoading(true);
       setIsError(false);
-      axios.get<GithubUser>(`https://api.github.com/users/${username}`)
+      axios.get<GithubUser>(`${process.env.NEXT_PUBLIC_API_URL}${username}`)
         .then(response => {
           setUser(response.data);
           setIsLoading(false);
